@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0c0b">
+  <meta name="description" content="SZH Mail - fast, disposable email powered by SZH Mail and Mail.tm.">
+  <title>SZH Mail - Disposable Email</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="SZH Mail home">
+      <img src="assets/logo.svg" alt="" width="40" height="40">
+      <span>SZH <b>MAIL</b></span>
+    </a>
+    <div class="header-meta">
+      <span class="status-dot" id="connectionDot"></span>
+      <span id="connectionText">READY</span>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="hero">
+      <div class="eyebrow"><span></span> PRIVATE INBOX / NO SIGN-UP</div>
+      <h1>Your temporary<br><em>mailbox.</em></h1>
+      <p class="hero-copy">Generate a disposable address, receive messages instantly, and leave no account behind.</p>
+    </section>
+
+    <section class="mailbox-card" aria-label="Temporary mailbox">
+      <div class="mailbox-top">
+        <div>
+          <div class="label">YOUR ADDRESS</div>
+          <div class="address-row">
+            <span id="emailAddress" class="email-address">Creating mailbox...</span>
+            <button id="copyBtn" class="icon-btn" type="button" title="Copy address" aria-label="Copy address" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9h10v10H9zM5 5h10v2H7v8H5z"/></svg>
+            </button>
+          </div>
+        </div>
+        <button id="newMailboxBtn" class="secondary-btn" type="button">NEW ADDRESS</button>
+      </div>
+
+      <div class="expiry">
+        <div class="expiry-head">
+          <span>MAILBOX LIFETIME</span>
+          <strong id="countdown">--:--:--</strong>
+        </div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <div class="expiry-foot"><span id="expiryLabel">Waiting for mailbox</span><span id="pollLabel">INBOX IDLE</span></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div>
+          <div class="section-kicker">INBOX</div>
+          <h2><span id="messageCount">0</span> messages</h2>
+        </div>
+        <div class="actions">
+          <button id="refreshBtn" class="secondary-btn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.9-4H8V5H3v5h2V8.2A6 6 0 1 1 6 15H4a8 8 0 0 0 16-4Z"/></svg>
+            REFRESH
+          </button>
+          <button id="deleteBtn" class="danger-btn" type="button">DISCARD</button>
+        </div>
+      </div>
+
+      <div class="inbox-layout">
+        <div id="inboxList" class="inbox-list" aria-live="polite">
+          <div class="state-card" id="inboxState">
+            <div class="loader"></div>
+            <strong>Creating your mailbox</strong>
+            <span>Connecting to mail service...</span>
+          </div>
+        </div>
+
+        <article id="reader" class="reader">
+          <div class="reader-empty">
+            <div class="reader-mark">SZH</div>
+            <strong>Select a message</strong>
+            <span>The full email will appear here.</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice-mark">i</div>
+      <div>
+        <strong>Disposable means disposable.</strong>
+        <p>Messages and the temporary mailbox are controlled by Mail.tm. Do not use this service for sensitive information or important accounts.</p>
+      </div>
+      <a href="https://mail.tm" target="_blank" rel="noopener noreferrer">MAIL.TM ↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 SZH MAIL</span>
+    <span>POWERED BY MAIL.TM</span>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

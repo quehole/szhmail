@@ -1,0 +1,12 @@
+{
+  "name": "szh-mail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SZH Mail disposable email app for Vercel",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node --check app.js && node --check api/mailbox.js && node --check api/messages.js && node --check api/message.js && node --check api/health.js"
+  }
+}
